@@ -15,7 +15,11 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("dj_starter.users.urls", namespace="users")),
+   
     path("accounts/", include("allauth.urls")),
+    path("rest_auth/", include('rest_auth.urls')),
+    path("rest_auth/registration/", include("dj_starter.users.registration.urls")),
+    
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
